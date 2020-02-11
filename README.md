@@ -1,7 +1,7 @@
 # ledger-app-monero
 
 
-Monero wallet application for Ledger Blue and Nano S
+MoneroV wallet application for Ledger Blue and Nano S
 
 # Install from sources
 
