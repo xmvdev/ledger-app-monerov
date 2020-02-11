@@ -82,9 +82,9 @@ void monero_init_private_key() {
   //generate account keys
 
   // m / purpose' / coin_type' / account' / change / address_index
-  // m / 44'      / 128'       / 0'       / 0      / 0
+  // m / 44'      / 30264'       / 0'       / 0      / 0
   path[0] = 0x8000002C;
-  path[1] = 0x80000080;
+  path[1] = 0x80007638;
   path[2] = 0x80000000;
   path[3] = 0x00000000;
   path[4] = 0x00000000;
@@ -127,7 +127,7 @@ void monero_init_ux() {
   monero_base58_public_key(G_monero_vstate.ux_wallet_public_address, G_monero_vstate.A,G_monero_vstate.B, 0, NULL);
   os_memset(G_monero_vstate.ux_wallet_public_short_address, '.', sizeof(G_monero_vstate.ux_wallet_public_short_address));
   os_memmove(G_monero_vstate.ux_wallet_public_short_address, G_monero_vstate.ux_wallet_public_address,5);
-  os_memmove(G_monero_vstate.ux_wallet_public_short_address+7, G_monero_vstate.ux_wallet_public_address+95-5,5);
+  os_memmove(G_monero_vstate.ux_wallet_public_short_address+7, G_monero_vstate.ux_wallet_public_address+98-5,5);
   G_monero_vstate.ux_wallet_public_short_address[12] = 0;
   #endif
 }
@@ -157,7 +157,7 @@ void monero_install(unsigned char netId) {
 /* ----------------------------------------------------------------------- */
 #define MONERO_SUPPORTED_CLIENT_SIZE 1
 const char * const monero_supported_client[MONERO_SUPPORTED_CLIENT_SIZE] = {
-  "0.15.0.",
+  "2.1.0.",
 };
 
 int monero_apdu_reset() {

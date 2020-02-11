@@ -40,7 +40,7 @@ DEBUG=False
 def usage(c):
     print('''
 Usage:
-    python -m ledger.monero.seedconv online|offline
+    python -m ledger.monerov.seedconv online|offline
 
     online:  Seed will be avalaible on the NanoS screen. It is possible to clear it directly from the device.
     offline: Seed is computed offline (NanoS is not required) from your 24 BIPS32 words
@@ -50,7 +50,7 @@ Usage:
 def banner():
     print('''
 =============================================================
-Monero Seed Converter v%s.%s. Copyright (c) Ledger SAS 20018.
+MoneroV Seed Converter v%s.%s. Copyright (c) Ledger SAS 20018.
 Licensed under the Apache License, Version 2.0
 =============================================================
         '''%(MAJOR,MINOR))
@@ -227,7 +227,7 @@ def spendkey_to_words(seed, language):
 def convert_mnemonic(language, ledger_mnemonic, passphrase):
     s = mnemonic_to_seed(ledger_mnemonic, passphrase)
     mkey = seed_to_master_key(s)
-    monero_ki, monero_ci = master_key_to_child_key(mkey, u"m/44'/128'/0'/0/0")
+    monero_ki, monero_ci = master_key_to_child_key(mkey, u"m/44'/30264'/0'/0/0")
     monero_seed = monero_ki
     monero_view_key, monero_spend_key = monero_seed_to_monero_keys(monero_seed)
     monero_words = spendkey_to_words(monero_spend_key, language)
@@ -251,7 +251,7 @@ def get_offline_seed(lang):
     print(u'''
     * Result:
       ---------------------------------------------------------------------------------------------------
-      | Monero Electrum words :  {0:<70} |
+      | MoneroV Electrum words :  {0:<70} |
       |                          {1:<70} |
       |                          {2:<70} |
       |                                                                                                 |

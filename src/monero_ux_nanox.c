@@ -195,7 +195,7 @@ UX_STEP_NOCB(
   ux_menu_validation_1_step,
   bn,
   {
-    "Amout",
+    "Amount",
     G_monero_vstate.ux_amount
   });
 
@@ -500,7 +500,7 @@ UX_STEP_NOCB(
   ux_menu_info_1_step,
   bnnn,
   {
-    "Monero",
+    "MoneroV",
     "(c) Ledger SAS",
     "Spec  " XSTR(SPEC_VERSION),
     "App  " XSTR(MONERO_VERSION),
@@ -607,21 +607,21 @@ void ui_menu_any_pubaddr_display(unsigned int value) {
     os_memmove(ADDR_TYPE, "Main", 4);
     os_memmove(ADDR_MAJOR, "Major: 0", 8);
     os_memmove(ADDR_MINOR, "minor: 0", 8);
-    l = 95;
+    l = 98;
     break;
 
   case DISP_SUB:
     os_memmove(ADDR_TYPE, "Sub", 3);
     snprintf(ADDR_MAJOR, 16, "Major: %d", G_monero_vstate.disp_addr_M);
     snprintf(ADDR_MINOR, 16, "minor: %d", G_monero_vstate.disp_addr_m);
-    l = 95;
+    l = 98;
     break;
 
   case DISP_INTEGRATED:
      os_memmove(ADDR_TYPE, "Integrated", 10);
      os_memmove(ADDR_IDSTR, "Payment ID", 10);
      os_memmove(ADDR_ID, G_monero_vstate.payment_id, 16);
-     l = 106;
+     l = 109;
      break;
   }
 
@@ -656,7 +656,7 @@ UX_STEP_CB(
   ui_menu_pubaddr_display(0),
   {
     &C_icon_monero,
-    "XMR",
+    "XMV",
     G_monero_vstate.ux_wallet_public_short_address
   });
 

@@ -253,7 +253,7 @@ int monero_apdu_put_key() {
   unsigned char pub[32];
   unsigned char sec[32];
 
-  if (G_monero_vstate.io_length != (32*2 + 32*2 + 95)) {
+  if (G_monero_vstate.io_length != (32*2 + 32*2 + 98)) {
     THROW(SW_WRONG_LENGTH);
     return SW_WRONG_LENGTH;
   }
@@ -304,7 +304,7 @@ int monero_apdu_get_key() {
     monero_io_insert(G_monero_vstate.B, 32);
     //public base address
     monero_base58_public_key((char*)G_monero_vstate.io_buffer+G_monero_vstate.io_offset, G_monero_vstate.A, G_monero_vstate.B, 0, NULL);
-    monero_io_inserted(95);
+    monero_io_inserted(98);
     break;
 
   //get private
@@ -324,9 +324,9 @@ int monero_apdu_get_key() {
     unsigned int  path[5];
     unsigned char seed[32];
 
-    // m/44'/128'/0'/0/0
+    // m/44'/30264'/0'/0/0
     path[0] = 0x8000002C;
-    path[1] = 0x80000080;
+    path[1] = 0x80007638;
     path[2] = 0x80000000;
     path[3] = 0x00000000;
     path[4] = 0x00000000;
